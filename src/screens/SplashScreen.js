@@ -1,49 +1,35 @@
-// SplashScreen.js
 import React, { useEffect } from 'react';
-import { View, Text, Image, StyleSheet, Animated } from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-const Splash = () => {
-  const fadeAnim = new Animated.Value(0);
-
+export default function SplashScreen({ navigation }) {
   useEffect(() => {
-    SplashScreen.hide(); // Hide the native splash screen after the React component mounts
-
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 2000, // 2 seconds
-      useNativeDriver: true,
-    }).start();
-  }, []);
+    setTimeout(() => {
+      navigation.replace('AppScreen');
+    }, 3000); // 3 seconds splash screen
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Animated.Image
-        source={require('./../assets/logo.png')} // Replace with your logo
-        style={[styles.logo, { opacity: fadeAnim }]}
-      />
-      <Text style={styles.title}>Welcome to MyApp</Text>
+      <Image source={require('./../assets/logo.png')} style={styles.image} />
+      <Text style={styles.text}>Welcome to MyBasket</Text>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#4CAF50', // Background color
+    backgroundColor: '#f5f5f5',
   },
-  logo: {
+  image: {
     width: 150,
     height: 150,
     marginBottom: 20,
   },
-  title: {
+  text: {
     fontSize: 24,
-    color: '#FFF',
     fontWeight: 'bold',
   },
 });
-
-export default Splash;

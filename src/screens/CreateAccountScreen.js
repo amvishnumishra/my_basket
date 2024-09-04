@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function CreateAccountScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home Screen</Text>
-      <Button title="Log Out" onPress={() => {/* handle logout */}} />
+      <Text style={styles.title}>Create Account</Text>
+      {/* Implement account creation form here */}
     </View>
   );
 }

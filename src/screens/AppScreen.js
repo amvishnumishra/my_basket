@@ -91,44 +91,50 @@ export default function AppScreen() {
       {viewState !== 'app' && renderHomeButton()}
       {viewState === 'app' && (
         <>
-          <Text style={styles.title}>My Basket</Text>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
-            <TouchableOpacity onPress={() => navigateTo('login')}>
-              <Text style={styles.neuButtonText}>Log In</Text>
-            </TouchableOpacity>
-          </NeuView>
-          <Text>Or</Text>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
-            <TouchableOpacity onPress={() => navigateTo('create')}>
-              <Text style={styles.neuButtonText}>Create Account</Text>
-            </TouchableOpacity>
-          </NeuView>
+          <View style={styles.section}>
+            <View style={styles.logoContainer}>
+              <Image source={require('./../assets/logo.png')} style={styles.logoImage} />
+            </View>
+            <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
+              <TouchableOpacity onPress={() => navigateTo('login')}>
+                <Text style={styles.neuButtonText}>Log In</Text>
+              </TouchableOpacity>
+            </NeuView>
+            <Text>Or</Text>
+            <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
+              <TouchableOpacity onPress={() => navigateTo('create')}>
+                <Text style={styles.neuButtonText}>Create Account</Text>
+              </TouchableOpacity>
+            </NeuView>
+          </View>
         </>
       )}
 
       {viewState === 'login' && (
         <View style={styles.section}>
-          <Text style={styles.title}>Log In</Text>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
+          <View style={styles.logoContainer}>
+            <Image source={require('./../assets/logo.png')} style={styles.logoImage} />
+          </View>
+          <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
             <TouchableOpacity onPress={() => navigateTo('phone')}>
               <Text style={styles.neuButtonText}>Phone</Text>
             </TouchableOpacity>
           </NeuView>
           <Text>Or</Text>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
+          <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
             <TouchableOpacity onPress={() => navigateTo('email')}>
               <Text style={styles.neuButtonText}>Email</Text>
             </TouchableOpacity>
           </NeuView>
           <Text>Or</Text>
           <View style={styles.socialLoginContainer}>
-            <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Google login */}}>
+            <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Google login */ }}>
               <Icon name="google" size={20} color="#db4437" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Facebook login */}}>
+            <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Facebook login */ }}>
               <Icon name="facebook" size={20} color="#3b5998" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Twitter login */}}>
+            <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Twitter login */ }}>
               <Icon name="twitter" size={20} color="#1da1f2" />
             </TouchableOpacity>
           </View>
@@ -137,8 +143,10 @@ export default function AppScreen() {
 
       {viewState === 'phone' && (
         <View style={styles.section}>
-          <Text style={styles.title}>Phone Login</Text>
-          <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
+          <View style={styles.logoContainer}>
+            <Image source={require('./../assets/logo.png')} style={styles.logoImage} />
+          </View>
+          <NeuView color="#adb9ba" width="100%" height={60} borderRadius={16} concave>
             <TextInput
               style={styles.input}
               placeholder="Enter phone number"
@@ -149,14 +157,14 @@ export default function AppScreen() {
             />
           </NeuView>
           {!isOtpSent ? (
-            <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
+            <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
               <TouchableOpacity onPress={handleSendOtp}>
                 <Text style={styles.neuButtonText}>Get OTP</Text>
               </TouchableOpacity>
             </NeuView>
           ) : (
             <>
-              <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
+              <NeuView color="#adb9ba" width="100%" height={60} borderRadius={16} concave>
                 <TextInput
                   style={styles.input}
                   placeholder="Enter OTP"
@@ -166,7 +174,7 @@ export default function AppScreen() {
                   onChangeText={setOtp}
                 />
               </NeuView>
-              <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
+              <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
                 <TouchableOpacity onPress={handleVerifyOtp}>
                   <Text style={styles.neuButtonText}>Verify</Text>
                 </TouchableOpacity>
@@ -178,8 +186,10 @@ export default function AppScreen() {
 
       {viewState === 'email' && (
         <View style={styles.section}>
-          <Text style={styles.title}>Email Login</Text>
-          <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
+          <View style={styles.logoContainer}>
+            <Image source={require('./../assets/logo.png')} style={styles.logoImage} />
+          </View>
+          <NeuView color="#adb9ba" width="100%" height={60} borderRadius={16} concave>
             <TextInput
               style={styles.input}
               placeholder="Enter your email"
@@ -188,7 +198,7 @@ export default function AppScreen() {
               onChangeText={setEmail}
             />
           </NeuView>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
+          <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
             <TouchableOpacity onPress={() => navigateTo('home')}>
               <Text style={styles.neuButtonText}>Login</Text>
             </TouchableOpacity>
@@ -199,7 +209,7 @@ export default function AppScreen() {
       {viewState === 'create' && (
         <View style={styles.section}>
           <Text style={styles.title}>Create Account</Text>
-          <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
+          <NeuView color="#adb9ba" width="100%" height={60} borderRadius={16} concave>
             <TextInput
               style={styles.input}
               placeholder="Name"
@@ -207,7 +217,7 @@ export default function AppScreen() {
               onChangeText={setName}
             />
           </NeuView>
-          <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
+          <NeuView color="#adb9ba" width="100%" height={60} borderRadius={16} concave>
             <TextInput
               style={styles.input}
               placeholder="Phone (Required)"
@@ -217,84 +227,18 @@ export default function AppScreen() {
               onChangeText={setPhoneNumber}
             />
           </NeuView>
-          <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
+          <NeuView color="#adb9ba" width="100%" height={60} borderRadius={16} concave>
             <TextInput
               style={styles.input}
-              placeholder="Email (Optional)"
+              placeholder="Email (Required)"
               keyboardType="email-address"
               value={email}
               onChangeText={setEmail}
             />
           </NeuView>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
+          <NeuView color="#adb9ba" width={200} height={60} borderRadius={16} concave>
             <TouchableOpacity onPress={handleSubmitCreate}>
-              <Text style={styles.neuButtonText}>Submit</Text>
-            </TouchableOpacity>
-          </NeuView>
-          <Text></Text>
-          <Text>Or</Text>
-          <View style={styles.socialLoginContainer}>
-                      <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Google login */}}>
-                        <Icon name="google" size={20} color="#db4437" />
-                      </TouchableOpacity>
-                      <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Facebook login */}}>
-                        <Icon name="facebook" size={20} color="#3b5998" />
-                      </TouchableOpacity>
-                      <TouchableOpacity style={styles.socialButton} onPress={() => {/* handle Twitter login */}}>
-                        <Icon name="twitter" size={20} color="#1da1f2" />
-                      </TouchableOpacity>
-              </View>
-        </View>
-      )}
-
-      {viewState === 'verifyPhoneOtp' && (
-        <View style={styles.section}>
-          <Text style={styles.title}>Verify Phone OTP</Text>
-          <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter OTP"
-              keyboardType="numeric"
-              maxLength={6}
-              value={otp}
-              onChangeText={setOtp}
-            />
-          </NeuView>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
-            <TouchableOpacity onPress={handleVerifyOtp}>
-              <Text style={styles.neuButtonText}>Verify</Text>
-            </TouchableOpacity>
-          </NeuView>
-        </View>
-      )}
-
-      {viewState === 'verifyEmailOtp' && (
-        <View style={styles.section}>
-          <Text style={styles.title}>Verify Email OTP</Text>
-          <NeuView color="#f5f5f5" width="100%" height={60} borderRadius={16} concave>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter OTP"
-              keyboardType="numeric"
-              maxLength={6}
-              value={otp}
-              onChangeText={setOtp}
-            />
-          </NeuView>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
-            <TouchableOpacity onPress={handleVerifyOtp}>
-              <Text style={styles.neuButtonText}>Verify</Text>
-            </TouchableOpacity>
-          </NeuView>
-        </View>
-      )}
-
-      {viewState === 'home' && (
-        <View style={styles.section}>
-          <Text style={styles.title}>Home Screen</Text>
-          <NeuView color="#f5f5f5" width={200} height={60} borderRadius={16} concave>
-            <TouchableOpacity onPress={() => navigateTo('app')}>
-              <Text style={styles.neuButtonText}>Log Out</Text>
+              <Text style={styles.neuButtonText}>Create Account</Text>
             </TouchableOpacity>
           </NeuView>
         </View>
@@ -308,7 +252,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f5f5f5', // Splash screen background color
   },
   splashImage: {
     width: 150,
@@ -318,19 +262,35 @@ const styles = StyleSheet.create({
   splashText: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#000',
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#d1ddde', // Other screens background color
     padding: 16,
   },
   section: {
-    flex: 1,
-    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    marginTop: 40,
+  },
+  logoContainer: {
+      paddingTop: '15%',
+      paddingBottom: '85%',
+  },
+  logoImage: {
+    width: 180,
+    height: 150,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 16,
+    left: 16,
+  },
+  homeButton: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
   },
   title: {
     fontSize: 24,
@@ -339,46 +299,29 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    padding: 10,
+    height: '100%',
+    padding: 16,
     fontSize: 16,
+    color: '#000',
   },
   neuButtonText: {
-    textAlign: 'center',
     fontSize: 18,
+    fontWeight: 'bold',
     color: '#000',
-    paddingVertical: 15,
+    textAlign: 'center',
+    lineHeight: 60,
   },
   socialLoginContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 20,
   },
-  orText: {
-    fontSize: 16,
-    marginVertical: 20,
-    color: '#000',
-  },
-  backButton: {
-    position: 'absolute',
-    top: 20,
-    left: 20,
-    zIndex: 1,
-    padding: 10,
-  },
-  homeButton: {
-    position: 'absolute',
-    top: 20,
-    right: 20,
-    zIndex: 1,
-    padding: 10,
-  },
-  socialLoginContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',  // Space icons evenly
-      alignItems: 'center',
-      marginTop: 20,
-      width: '60%',  // Adjust as necessary to fit the icons nicely
-  },
   socialButton: {
-    padding: 10,  // Add some padding around the icons for better touch response
+    padding: 16,
+    borderRadius: 8,
+    backgroundColor: '#fff',
+    marginHorizontal: 8,
+    elevation: 2,
   },
 });
+
